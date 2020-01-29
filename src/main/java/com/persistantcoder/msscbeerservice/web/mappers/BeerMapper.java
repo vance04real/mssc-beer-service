@@ -1,5 +1,7 @@
 package com.persistantcoder.msscbeerservice.web.mappers;
 
+import com.persistantcoder.msscbeerservice.domain.Beer;
+import com.persistantcoder.msscbeerservice.web.model.BeerDto;
 import org.mapstruct.Mapper;
 
 /**
@@ -8,4 +10,7 @@ import org.mapstruct.Mapper;
 
 @Mapper(uses={DateMapper.class})
 public interface BeerMapper {
+
+    BeerDto convertToBeerDto (Beer beer);
+    Beer convertToBeer (BeerDto beerDto);
 }
