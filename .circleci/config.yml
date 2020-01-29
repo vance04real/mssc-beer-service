@@ -23,6 +23,14 @@ jobs:
     steps:
     - checkout
 
+    dependencies:
+      override:
+      - mvn -DskipTests clean install dependency:resolve-plugins dependency:go-offline
+
+    test:
+      override:
+      - mvn -o surefire:test
+
     # Download and cache dependencies
     - restore_cache:
         keys:
